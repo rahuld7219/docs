@@ -604,14 +604,16 @@ alled the right subtree of the node with value 3 (the root). Notice that this su
 ## Code representation
 Just like with a linked list, binary trees are implemented using objects of a custom class. This is the typical class definition that will be provided to you in algorithm problems:
 
-  class TreeNode {
+```
+class TreeNode {
       int val;
       TreeNode left;
       TreeNode right;
       TreeNode (int val) {
           this.val = val;
       }
-  }
+}
+```
 In binary tree problems, you will be given a reference to the root of a binary tree as the input. You can access the root's left subtree with root.left and the root's right subtree with root.right. Like with linked lists, each node will also carry a value val as data. In a linked list, the tail (last node) has its next pointer as null. In a binary tree, if a node does not have a left child, then node.left will be null, and vice-versa with the right child. Remember that if both children are null, then the node is a leaf.
 
 
