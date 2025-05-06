@@ -616,4 +616,31 @@ class TreeNode {
 ```
 In binary tree problems, you will be given a reference to the root of a binary tree as the input. You can access the root's left subtree with root.left and the root's right subtree with root.right. Like with linked lists, each node will also carry a value val as data. In a linked list, the tail (last node) has its next pointer as null. In a binary tree, if a node does not have a left child, then node.left will be null, and vice-versa with the right child. Remember that if both children are null, then the node is a leaf.
 
+## Binary trees - DFS
+Traversing a binary tree follows the same idea as Linked List. We start at the root and traverse by using the child pointers .left and .right. When traversing linked lists, we usually do it iteratively. With binary trees, we usually do it recursively.
 
+There are two main types of tree traversals. The first is called depth-first search (DFS). For binary trees specifically, there are 3 ways to perform DFS - preorder, inorder, and postorder (don't worry though, the type you choose rarely matters). The other main type of traversal is called breadth-first search (BFS).
+
+## Depth-first search (DFS)
+
+In a DFS, we prioritize depth by traversing as far down the tree as possible in one direction (until reaching a leaf node) before considering the other direction.
+Trees are named as such because they resemble real-life trees. You can think of the paths of a binary tree as branches growing from the root. DFS chooses a branch and goes as far down as possible. Once it fully explores the branch, it backtracks until it finds another unexplored branch.
+Because we need to backtrack up the tree after reaching the end of a branch, DFS is typically implemented using recursion, although it is also sometimes done iteratively using a stack.
+
+```
+public void dfs(Node node) {
+    if (node == null) {
+        return;
+    }
+
+    dfs(node.left);
+    dfs(node.right);
+    return;
+}
+```
+It goes as follows:
+
+1. Handle the base case(s). Usually, an empty tree (node = null) is a base case.
+2. Do some logic for the current node
+3. Recursively call on the current node's children
+4. Return the answer
