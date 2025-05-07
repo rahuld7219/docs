@@ -668,6 +668,8 @@ The name of each traversal is describing when the current node's logic is perfor
 
 In many problems, the type of DFS used doesn't even matter, it's just important that all nodes are visited. Knowing the differences between the three types of DFS is mostly good for trivia.
 
+To solve binary tree problems, you must think recursively. When thinking about designing recursive functions, a good starting point is always the base case.
+
 
 
 
