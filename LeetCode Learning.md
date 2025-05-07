@@ -605,15 +605,68 @@ Steps 2 and 3 may happen in different orders.
 The most important thing to understand when it comes to solving binary tree problems is that **each function call solves and returns the answer to the original problem as if the subtree rooted at the current node was the input**
 
 ### Preorder traversal
+In preorder traversal, logic is done on the current node before moving to the children.
+
+```
+public void preorderDfs(Node node) {
+    if (node == null) {
+        return;
+    }
+
+    System.out.println(node.val);
+    preorderDfs(node.left);
+    preorderDfs(node.right);
+    return;
+}
+```
+
+### Inorder traversal
+For inorder traversal, we first recursively call the left child, then perform logic (print in this case) on the current node, and then recursively call the right child.
+This means no logic will be done until we reach a node without a left child since calling on the left child takes priority over performing logic.
+
+```
+public void inorderDfs(Node node) {
+    if (node == null) {
+        return;
+    }
+
+    inorderDfs(node.left);
+    System.out.println(node.val);
+    inorderDfs(node.right);
+    return;
+}
+```
+Notice that for any given node, its value is not printed until all values in the left subtree are printed.
+
+### Postorder traversal
+
+In postorder traversal, we recursively call on the children first and then perform logic on the current node. This means no logic will be done until we reach a leaf node since calling on the children takes priority over performing logic. In a postorder traversal, the root is the last node where logic is done.
+
+```
+public void postorderDfs(Node node) {
+    if (node == null) {
+        return;
+    }
+
+    postorderDfs(node.left);
+    postorderDfs(node.right);
+    System.out.println(node.val);
+    return;
+}
+```
+
+Notice that for any given node, no values in its right subtree are printed until all values in its left subtree are printed, and its own value is not printed until after that.
+
+The name of each traversal is describing when the current node's logic is performed.
+
+  Pre -> before children
+  
+  In -> in the middle of children
+  
+  Post -> after children
 
 
-
-
-
-
-
-
-
+In many problems, the type of DFS used doesn't even matter, it's just important that all nodes are visited. Knowing the differences between the three types of DFS is mostly good for trivia.
 
 
 
